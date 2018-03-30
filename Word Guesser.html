@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body  {
+            background-color: #a0785a
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Guess the Funny Color</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="html" type="text/html" href="index.html">
+    <link rel="html" type="text/html" href="red.html">
+    <link rel="html" type="text/html" href="orange.html">
+    <link rel="html" type="text/html" href="yellow.html">
+    <link rel="html" type="text/html" href="green.html">
+    <link rel="html" type="text/html" href="blue.html">
+    <link rel="html" type="text/html" href="purple.html">
+    <link rel="html" type="text/html" href="Word%20Guesser.html">
+</head>
+<body>
+
+<h1><a href="index.html">The Colors of The Rainbow</a></h1>
+<red class="links"><a href="red.html"> Red </a></red>
+<orange class="links"> <a href="orange.html">Orange </a></orange>
+<yellow class="links"><a href="yellow.html">Yellow</a> </yellow>
+<green class="links"><a href="green.html">Green</a> </green>
+<blue class="links"><a href="blue.html"> Blue</a> </blue>
+<purple class="links"><a href="purple.html"> Purple</a> </purple>
+<br> <game><a href="Word%20Guesser.html">Color Guesser Game</a></game>
+
+<div id="guess_display"></div>
+
+
+<form id="guess_form">
+    <label>Guess a letter:
+        <input type="text" id="guess_input">
+    </label>
+</form>
+
+<div id="guess_status"></div>
+
+<script>
+    // Store DOM elements in variables
+    var guessForm = document.getElementById("guess_form");
+    var guessDisplay = document.getElementById("guess_display");
+    var guessInput = document.getElementById("guess_input");
+    var guessStatus = document.getElementById("guess_status");
+
+    // Initialize game state variables
+    var secretWord = "chamoisee";
+    var guessedWord = [];
+    var guessedLetters = [];
+    for (var i = 0; i < secretWord.length; i++) {
+        guessedWord[i] = "_";
+    }
+
+    var checkLetterGuess = function(letter) {
+        var guess = false;
+        for (var i = 0; i < secretWord.length; i++) {
+            if (letter === secretWord[i]){
+                guess = true;
+                guessedWord[i] = secretWord[i];
+            }
+        }return guess
+    }
+    var hasWon = function() {
+        var Won = true;
+        for(var j = 0; j < secretWord.length;j++)
+        {
+            if(secretWord[j] !== guessedWord[j])
+            {
+                Won = false;
+            }
+        }
+        return Won;
+    }
+
+
+    var displayGuessedWord = function() {
+        guessDisplay.innerHTML = guessedWord.join(" ");
+    };
+
+
+    guessForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        var foundLetter = checkLetterGuess(guessInput.value);
+        if (foundLetter) {
+            guessStatus.innerHTML = "Yay you found one!";
+        } else {
+            guessStatus.innerHTML = "Sorry, not so much!";
+        }
+        if (hasWon()) {
+            guessStatus.innerHTML += "It is named after a goat from switzerland. Cool huh?";
+        }
+        displayGuessedWord();
+        guessInput.value = "";
+    });
+    displayGuessedWord();
+
+</script>
+
+</body>
+</html>

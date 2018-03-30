@@ -1,0 +1,39 @@
+h1 {
+    color: rgb(224, 20, 20);
+    text-align: center;
+    font-size: 50px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 300px;
+    margin-right: 300px;
+    border-radius:25px;
+}
+game {
+    background-color: white;
+    color: rgba(28, 0, 255, 0.74);
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.links{
+    font-size: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+red {
+    background-color: rgba(255, 0, 0, .65);
+}
+orange {
+    background-color: rgba(255, 134, 2, 0.65);
+}
+yellow {
+    background-color: rgba(255, 242, 0, 0.65);
+}
+green {
+    background-color: rgba(67, 255, 52, 0.65);
+}
+blue {
+    background-color: rgba(0, 31, 255, 0.65);
+}
+purple {
+    background-color: rgba(157, 0, 255, 0.67);
+}
